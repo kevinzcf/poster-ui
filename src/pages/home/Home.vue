@@ -9,10 +9,10 @@
 import User from './components/User'
 import Posts from './components/Posts'
 export default {
-  name: 'Home',
-  components: {
-	User,
-	Posts
-  }
+	name: 'Home',
+	components: {
+		User,
+		Posts
+	}
 }
 </script>

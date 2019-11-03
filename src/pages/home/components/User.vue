@@ -1,11 +1,53 @@
 <template>
   <div class="user">
-	user
+	<div class="user-left">
+		<div>{{user.name}}</div>
+		<div>{{user.email}}</div>
+		<div>{{user.phone}}</div>
+		<div>{{user.website}}</div>
+	</div>
+	<div class="user-right">
+		<div>{{user.address.street}}</div>
+		<div>{{user.address.suite}}</div>
+		<div>{{user.address.city}}</div>
+		<div>{{user.address.zipcode}}</div>
+	</div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'user'
+	name: 'user',
+	data () {
+		return {
+			user:{}
+		}
+	},
+	mounted(){
+		this.getUser();
+	},
+	methods:{
+		getUser(){
+			var url = "http://jsonplaceholder.typicode.com/users/1";
+			axios.get(url).then((response)=>{
+				this.user=response.data;
+			});
+			this.user = "loading...."
+		}
+	}
 }
 </script>
+
+<style lang="stylus" scoped>
+	.user
+		display: flex
+		height: 6rem
+		text-align: center
+		.user-left
+			flex: 1
+			float: left
+		.user-right
+			flex: 1
+			float: right
+</style>
