@@ -8,25 +8,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
 	name: 'posts',
-	data () {
-		return {
-			posts:[]
-		}
-	},
-	mounted(){
-		this.getPosts();
-	},
-	methods:{
-		getPosts(){
-			var url = "http://jsonplaceholder.typicode.com/posts?userId=1";
-			axios.get(url).then((response)=>{
-				this.posts=response.data;
-			});
-			this.posts = "loading...."
-		}
+	props: {
+		posts: []
 	}
 }
 </script>

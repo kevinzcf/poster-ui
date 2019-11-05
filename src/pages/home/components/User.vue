@@ -16,25 +16,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
-	name: 'user',
-	data () {
-		return {
-			user:{}
-		}
-	},
-	mounted(){
-		this.getUser();
-	},
-	methods:{
-		getUser(){
-			var url = "http://jsonplaceholder.typicode.com/users/1";
-			axios.get(url).then((response)=>{
-				this.user=response.data;
-			});
-			this.user = "loading...."
-		}
+	name: "user",
+	props: {
+		user: {}
 	}
 }
 </script>
